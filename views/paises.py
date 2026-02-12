@@ -31,7 +31,7 @@ def paises(df):
     df_filtrado = df[df["country"].isin(paises_selecionados)]
 
     # =========================
-    # 1️⃣ Restaurantes por país
+    #  Restaurantes por país
     # =========================
     restaurantes_pais = (
         df_filtrado.groupby("country")["restaurant_id"]
@@ -51,7 +51,7 @@ def paises(df):
     st.plotly_chart(fig_rest, use_container_width=True)
 
     # =========================
-    # 2️⃣ Cidades por país
+    #  Cidades por país
     # =========================
     cidades_pais = (
         df_filtrado.groupby("country")["city"]
@@ -71,7 +71,7 @@ def paises(df):
     st.plotly_chart(fig_city, use_container_width=True)
 
     # =========================
-    # 3️⃣ Avaliação média
+    #  Avaliação média
     # =========================
     rating_pais = (
         df_filtrado.groupby("country")["aggregate_rating"]
@@ -89,7 +89,7 @@ def paises(df):
     )
 
     # =========================
-    # 4️⃣ Preço médio para dois
+    #  Preço médio para dois
     # =========================
     preco_pais = (
         df_filtrado.groupby("country")["average_cost_for_two"]
@@ -112,4 +112,5 @@ def paises(df):
     col1, col2 = st.columns(2)
 
     col1.plotly_chart(fig_rating, use_container_width=True)
+
     col2.plotly_chart(fig_price, use_container_width=True)
