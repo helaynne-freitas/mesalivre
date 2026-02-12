@@ -57,7 +57,7 @@ def cidades(df):
     color_map = CORES_PAISES
 
     # =========================
-    # 1️⃣ Top 10 cidades com mais restaurantes
+    #  Top 10 cidades com mais restaurantes
     # =========================
     top_rest = (
         df.groupby(["country", "city"])["restaurant_id"]
@@ -77,7 +77,7 @@ def cidades(df):
     )
 
     # =========================
-    # 2️⃣ Top 7 cidades (avaliação > 4)
+    #  Top 7 cidades (avaliação > 4)
     # =========================
     rating_maior_4 = (
         df.groupby(["country", "city"])
@@ -104,7 +104,7 @@ def cidades(df):
     )
 
     # =========================
-    # 3️⃣ cidades (avaliação <= 2.5)
+    #  cidades (avaliação <= 2.5)
     # =========================
     top_rating_baixo = (
         rating_maior_4[rating_maior_4["media"] <= 2.5]
@@ -122,7 +122,7 @@ def cidades(df):
     )
 
     # =========================
-    # 4️⃣ Top 10 cidades com mais culinárias distintas
+    #  Top 10 cidades com mais culinárias distintas
     # =========================
     top_cuisines = (
         df.groupby(["country", "city"])["cuisines"]
@@ -154,4 +154,5 @@ def cidades(df):
     col2.plotly_chart(fig3, use_container_width=True)
 
     # Linha 3
+
     st.plotly_chart(fig4, use_container_width=True)
